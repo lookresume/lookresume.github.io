@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang='zh-cn'>
+<head>
+<meta charset='UTF-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>ღ在线简历导入预览 </title>
+<link rel="shortcut icon" href="images/favicon2.png">
+<link rel='stylesheet' href='css/min.css'>
+<link rel="stylesheet" href="css/model.css"> 
+<!-- cdn端人物图片模型 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/limper2020/fzl@1.01/style.css">    -->
+<script type='text/javascript'>
+/* <![CDATA[ */
+var globals = {"ajax_url":"","post_id":"","theme_url":""};
+var __ = {"load_more":"\u52a0\u8f7d\u66f4\u591a","reached_the_end":"- \u6ca1\u6709\u66f4\u591a\u5185\u5bb9 -","thank_you":"\u8c22\u8c22\u70b9\u8d5e","success":"\u64cd\u4f5c\u6210\u529f","cancelled":"\u53d6\u6d88\u70b9\u8d5e"};
+/* ]]> */
+</script>
+<style>
+html,body {height: 100%;margin: 0;padding: 0;}body {font-family: 'lucida grande', 'lucida sans unicode', lucida, helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;align-items: center;display: flex;}a{text-decoration:none;}#container {max-width: 400px;flex-basis: 100%;margin: 0 auto;background: #FFF;border-radius: 10px;box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);-webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);overflow: hidden;}#container #hero-img {width: 100%;height: 200px;background: #007bff;}#container #profile-img {width: 160px;height: 160px;margin: -80px auto 0 auto;border: 6px solid #FFF;border-radius: 50%;box-shadow: 0 0 5px rgba(90, 90, 90, 0.3);}#container #profile-img img {width: 100%;background: #FFF;border-radius: 50%;}#container #content {text-align: center;width: 320px;margin: 0 auto;padding: 0 0 50px 0;}#container #content h1 {font-size: 29px;font-weight: 500;margin: 50px 0 0 0;}#container #content p {font-size: 18px;font-weight: 400;line-height: 1.4;color: #666;margin: 15px 0 40px 0;}#container #content a {color: #CCC;font-size: 14px;margin: 0 10px;transition: color .3s ease-in-out;-webkit-transition: color .3s ease-in-out;}#container #content a:hover {color: #007bff;}.btn{background: none repeat scroll 0 0 #1BA1E2; border: 0 none; border-radius: 2px; color: #FFFFFF !important; cursor: pointer; font-family: "Open Sans","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",Arial,Verdana,Tahoma,sans-serif; font-size: 14px;  padding: 6px 10%;}.btn:hover,.yanshibtn:hover{background: none repeat scroll 0 0 #9B59B6; border: 0 none; border-radius: 2px; color: #FFFFFF!important; cursor: pointer; font-family: "Open Sans","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",Arial,Verdana,Tahoma,sans-serif; font-size: 14px; padding: 8px 10%;}
+</style>
+</head>
+<body>
+<!-- 下雪代码 过后删除或引用  
+<script type="text/javascript">
+    /* 控制下雪 */
+    function snowFall(snow) {
+        /* 可配置属性 */
+        snow = snow || {};
+        this.maxFlake = snow.maxFlake || 7;   /* 最多片数 */
+        this.flakeSize = snow.flakeSize || 8;  /* 雪花形状大小 */
+        this.fallSpeed = snow.fallSpeed || 1;   /* 坠落速度 */
+    }
+    /* 兼容写法 */
+    requestAnimationFrame = window.requestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        function(callback) { setTimeout(callback, 1000 / 60); };
+ 
+    cancelAnimationFrame = window.cancelAnimationFrame ||
+        window.mozCancelAnimationFrame ||
+        window.webkitCancelAnimationFrame ||
+        window.msCancelAnimationFrame ||
+        window.oCancelAnimationFrame;
+    /* 开始下雪 */
+    snowFall.prototype.start = function(){
+        /* 创建画布 */
+        snowCanvas.apply(this);
+        /* 创建雪花形状 */
+        createFlakes.apply(this);
+        /* 画雪 */
+        drawSnow.apply(this)
+    }
+    /* 创建画布 */
+    function snowCanvas() {
+        /* 添加Dom结点 */
+        var snowcanvas = document.createElement("canvas");
+        snowcanvas.id = "snowfall";
+        snowcanvas.width = window.innerWidth;
+        snowcanvas.height = document.body.clientHeight;
+        snowcanvas.setAttribute("style", "position:absolute; top: 0; left: 0; z-index: 1; pointer-events: none;");
+        document.getElementsByTagName("body")[0].appendChild(snowcanvas);
+        this.canvas = snowcanvas;
+        this.ctx = snowcanvas.getContext("2d");
+        /* 窗口大小改变的处理 */
+        window.onresize = function() {
+            snowcanvas.width = window.innerWidth;
+            /* snowcanvas.height = window.innerHeight */
+        }
+    }
+    /* 雪运动对象 */
+    function flakeMove(canvasWidth, canvasHeight, flakeSize, fallSpeed) {
+        this.x = Math.floor(Math.random() * canvasWidth);   /* x坐标 */
+        this.y = Math.floor(Math.random() * canvasHeight);  /* y坐标 */
+        this.size = Math.random() * flakeSize + 2;          /* 形状 */
+        this.maxSize = flakeSize;                           /* 最大形状 */
+        this.speed = Math.random() * 1 + fallSpeed;         /* 坠落速度 */
+        this.fallSpeed = fallSpeed;                         /* 坠落速度 */
+        this.velY = this.speed;                             /* Y方向速度 */
+        this.velX = 0;                                      /* X方向速度 */
+        this.stepSize = Math.random() / 30;                 /* 步长 */
+        this.step = 0                                       /* 步数 */
+    }
+    flakeMove.prototype.update = function() {
+        var x = this.x,
+            y = this.y;
+        /* 左右摆动(余弦) */
+        this.velX *= 0.98;
+        if (this.velY <= this.speed) {
+            this.velY = this.speed        }
+        this.velX += Math.cos(this.step += .05) * this.stepSize;
+ 
+        this.y += this.velY;
+        this.x += this.velX;
+        /* 飞出边界的处理 */
+        if (this.x >= canvas.width || this.x <= 0 || this.y >= canvas.height || this.y <= 0) {
+            this.reset(canvas.width, canvas.height)
+        }
+    };
+    /* 飞出边界-放置最顶端继续坠落 */
+    flakeMove.prototype.reset = function(width, height) {
+        this.x = Math.floor(Math.random() * width);
+        this.y = 0;
+        this.size = Math.random() * this.maxSize + 2;
+        this.speed = Math.random() * 1 + this.fallSpeed;
+        this.velY = this.speed;
+        this.velX = 0;
+    };
+    // 渲染雪花-随机形状（此处可修改雪花颜色！！！）
+    flakeMove.prototype.render = function(ctx) {
+        var snowFlake = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
+        snowFlake.addColorStop(0, "rgba(255, 255, 255, 0.9)");  /* 此处是雪花颜色，默认是白色 */
+        snowFlake.addColorStop(.5, "rgba(255, 255, 255, 0.5)"); /* 若要改为其他颜色，请自行查 */
+        snowFlake.addColorStop(1, "rgba(255, 255, 255, 0)");    /* 找16进制的RGB 颜色代码。 */
+        ctx.save();
+        ctx.fillStyle = snowFlake;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+    };
+    /* 创建雪花-定义形状 */
+    function createFlakes() {
+        var maxFlake = this.maxFlake,
+            flakes = this.flakes = [],
+            canvas = this.canvas;
+        for (var i = 0; i < maxFlake; i++) {
+            flakes.push(new flakeMove(canvas.width, canvas.height, this.flakeSize, this.fallSpeed))
+        }
+    }
+    /* 画雪 */
+    function drawSnow() {
+        var maxFlake = this.maxFlake,
+            flakes = this.flakes;
+        ctx = this.ctx, canvas = this.canvas, that = this;
+        /* 清空雪花 */
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (var e = 0; e < maxFlake; e++) {
+            flakes[e].update();
+            flakes[e].render(ctx);
+        }
+        /*  一帧一帧的画 */
+        this.loop = requestAnimationFrame(function() {
+            drawSnow.apply(that);
+        });
+    }
+    /* 调用及控制方法 */
+    var snow = new snowFall({maxFlake:500});
+    snow.start();
+	</script>  -->
+<!-- 手动加入DIV#loader-wrapper -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+		<link rel="stylesheet" href="css/loading.css">
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+        <div id="load_title">加载中、请稍后...</div>
+    </div>
+<div id='container'>
+	<div id='hero-img'>
+	</div>
+	<div id='profile-img'>
+		<img src='images/iconsun.png'/>
+	</div>
+	<div id='content'>
+		<!-- <h1>I Tell You</h1> -->
+		<ol>
+		    <li><font size="2" color="">网页版简历 访问密码：</font><font size="3" color="#FF0000"><b>0</b></font></li>
+			<li><font size="2" color="">此简历可能更偏向Boss或主管类</font></li>
+			<li><font size="2" color="">感谢意向选取和录用 诚以致远</font></li>
+			<li><font size="2" color="">更新于<b>2021.3.16</b> ☺垂询微信:<a target="_blank" href="images/wechat_add_code.png"><font size="2" color="#272727">OneBoy-WeChat</a></font>
+			<li><font size="2" color="">望此简历和相关能符合≥60 相关不足之处，还请海涵</font>
+			</ol>
+			<!--倒计时 <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+<font size="5" color="ff0000">祝</font>	：2021年新年快乐		
+			<DIV id="CountMsg" class="HotDate"> 
+（除夕倒计时:
+<span id="t_d">00天</span> 
+<span id="t_h">00时</span> 
+<span id="t_m">00分</span> 
+<span id="t_s">00秒</span> 
+）
+</DIV> 
+<script type="text/javascript"> 
+function getRTime(){ 
+var EndTime= new Date('2021/2/11 00:00:00'); //截止时间 
+var NowTime = new Date(); 
+var t =EndTime.getTime() - NowTime.getTime(); 
+/*var d=Math.floor(t/1000/60/60/24); 
+t-=d*(1000*60*60*24); 
+var h=Math.floor(t/1000/60/60); 
+t-=h*60*60*1000; 
+var m=Math.floor(t/1000/60); 
+t-=m*60*1000; 
+var s=Math.floor(t/1000);*/ 
+
+var d=Math.floor(t/1000/60/60/24); 
+var h=Math.floor(t/1000/60/60%24); 
+var m=Math.floor(t/1000/60%60); 
+var s=Math.floor(t/1000%60); 
+
+document.getElementById("t_d").innerHTML = d + "天"; 
+document.getElementById("t_h").innerHTML = h + "时"; 
+document.getElementById("t_m").innerHTML = m + "分"; 
+document.getElementById("t_s").innerHTML = s + "秒"; 
+} 
+setInterval(getRTime,1000); 
+</script>  -->
+</body> 
+		<p><font size="2" color="#737300">< 推荐电脑或主流浏览器访问 ></font></p>
+		<a target="_blank" href="https://resume-1252777009.cos-website.ap-beijing.myqcloud.com/webindex.html" class="btn btn-default" rel='nofollow'>内线访(快)✔</a> <a target="_blank" href="https://resume-1252777009.cos-website.ap-beijing.myqcloud.com/webindex.html" class="btn btn-default" rel='nofollow'><s>外线访(慢)</s></a>
+	</div>
+</div>
+
+<!-- loading直引 -->
+<script type="text/javascript">
+        window.onload = function () {
+            /* window中所有元素加载完成后，给body加个class -> loaded，也可以通过 jquery || vue 实现等价代码 */
+            document.body.className += ' loaded';
+        }
+    </script>
+	
+</body>
+</html>
