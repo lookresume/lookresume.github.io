@@ -1,6 +1,8 @@
 # robots.txt generated at http://tool.chinaz.com/robots/ 
 User-agent: Baiduspider
 Disallow: /
+User-agent: Sosospider
+Disallow: /
 User-agent: sogou spider
 Disallow: /
 User-agent: YodaoBot
@@ -35,4 +37,4 @@ User-agent: yahoo-blogs/v3.9
 Disallow: /
 User-agent: psbot
 Disallow: /
-Sitemap: https://resume-1252777009.cos-website.ap-beijing.myqcloud.com
+Disallow: /bin/
