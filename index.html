@@ -6,18 +6,145 @@
 <meta name="robots" content="noindex,nofollow">
 <title>ღ在线简历导入预览 </title>
 <link rel="shortcut icon" href="images/favicon2.png">
-<link rel='stylesheet' href='css/min.css'>
-<link rel="stylesheet" href="css/model.css"> 
+<link rel='stylesheet' href='https://myresume-1252777009.cos.ap-beijing.myqcloud.com/css/min.css'>
+<link rel="stylesheet" href="https://myresume-1252777009.cos.ap-beijing.myqcloud.com/css/model.css"> 
+<link rel="stylesheet" href="https://myresume-1252777009.cos.ap-beijing.myqcloud.com/css/homepagestyle.css">
 <!-- cdn端人物图片模型 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/limper2020/fzl@1.01/style.css">    -->
-<script type='text/javascript'>
-/* <![CDATA[ */
-var globals = {"ajax_url":"","post_id":"","theme_url":""};
-var __ = {"load_more":"\u52a0\u8f7d\u66f4\u591a","reached_the_end":"- \u6ca1\u6709\u66f4\u591a\u5185\u5bb9 -","thank_you":"\u8c22\u8c22\u70b9\u8d5e","success":"\u64cd\u4f5c\u6210\u529f","cancelled":"\u53d6\u6d88\u70b9\u8d5e"};
-/* ]]> */
-</script>
+
 <style>
 html,body {height: 100%;margin: 0;padding: 0;}body {font-family: 'lucida grande', 'lucida sans unicode', lucida, helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;align-items: center;display: flex;}a{text-decoration:none;}#container {max-width: 400px;flex-basis: 100%;margin: 0 auto;background: #FFF;border-radius: 10px;box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);-webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);overflow: hidden;}#container #hero-img {width: 100%;height: 200px;background: #007bff;}#container #profile-img {width: 160px;height: 160px;margin: -80px auto 0 auto;border: 6px solid #FFF;border-radius: 50%;box-shadow: 0 0 5px rgba(90, 90, 90, 0.3);}#container #profile-img img {width: 100%;background: #FFF;border-radius: 50%;}#container #content {text-align: center;width: 320px;margin: 0 auto;padding: 0 0 50px 0;}#container #content h1 {font-size: 29px;font-weight: 500;margin: 50px 0 0 0;}#container #content p {font-size: 18px;font-weight: 400;line-height: 1.4;color: #666;margin: 15px 0 40px 0;}#container #content a {color: #CCC;font-size: 14px;margin: 0 10px;transition: color .3s ease-in-out;-webkit-transition: color .3s ease-in-out;}#container #content a:hover {color: #007bff;}.btn{background: none repeat scroll 0 0 #1BA1E2; border: 0 none; border-radius: 2px; color: #FFFFFF !important; cursor: pointer; font-family: "Open Sans","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",Arial,Verdana,Tahoma,sans-serif; font-size: 14px;  padding: 6px 10%;}.btn:hover,.yanshibtn:hover{background: none repeat scroll 0 0 #9B59B6; border: 0 none; border-radius: 2px; color: #FFFFFF!important; cursor: pointer; font-family: "Open Sans","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",Arial,Verdana,Tahoma,sans-serif; font-size: 14px; padding: 8px 10%;}
 </style>
+<!--参考51前端 禁止代码   -->
+<script type="text/javascript">
+//iframe内部禁止方法
+window.onload=function(){
+
+  document.getElementById('iframe').contentDocument.onkeydown = function(ev){
+	 
+	//禁止保存ctrl+s
+	if (ev && (ev.ctrlKey || ev.metaKey) && (ev.keyCode == 83)) {
+		alert("权限禁止...");
+		return false;
+	}
+	//禁止F12等等~~
+    if(ev && (ev.keyCode == 123 || ev.keyCode == 8 || ev.keyCode == 9 || ev.keyCode == 13) ) {
+	    alert("权限禁止...");
+	    return false;
+    }	
+
+	
+  }
+  //禁止右键
+  document.getElementById('iframe').contentDocument.oncontextmenu = function(){ 
+    alert("权限禁止...");
+    return false;
+  } 
+  
+}
+
+
+//iframe外部禁止
+document.onkeydown = function(){/*9:Tab键, 17：Control键, 18:Alt键, 123:F12键, 83:S键*/
+	
+    //禁止保存ctrl+s
+	if (window.event && (window.event.ctrlKey || window.event.metaKey) && (window.event.keyCode == 83)) {
+		alert("权限禁止...");
+		return false;
+	}
+	
+	//禁止F12等等~~
+if(window.event && (window.event.keyCode == 123 || window.event.keyCode == 8 || window.event.keyCode == 9 || window.event.keyCode == 13)) {
+        alert("权限禁止...");
+        window.event.returnValue=false;
+    }
+}
+
+
+//屏蔽右键
+document.oncontextmenu = function (event){
+    if(window.event){
+    event = window.event;
+    }
+    try{
+    var the = event.srcElement;
+        if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")){
+        return false;
+        }
+        return true;
+    }
+    catch (e){
+        return false;
+    }
+}
+
+//屏蔽选中
+document.onselectstart = function (event){
+    if(window.event){
+        event = window.event;
+        }
+    try{
+        var the = event.srcElement;
+        if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")){
+        return false;
+        }
+        return true;
+        } 
+    catch (e) {
+        return false;
+    }
+}
+//屏蔽复制
+document.oncopy = function (event){
+    if(window.event){
+    event = window.event;
+    }
+    try{
+        var the = event.srcElement;
+        if(!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")){
+        return false;
+        }
+        return true;
+        }
+    catch (e){
+        return false;
+    }
+}
+
+//屏蔽剪切
+document.oncut = function (event){
+    if(window.event){
+    event = window.event;
+    }
+    try{
+        var the = event.srcElement;
+        if(!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")){
+        return false;
+        }
+        return true;
+        }
+    catch (e){
+        return false;
+    }
+}
+
+//屏蔽粘贴
+document.onpaste = function (event){
+    if(window.event){
+        event = window.event;
+        }
+    try{
+        var the = event.srcElement;
+        if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")){
+        return false;
+        }
+        return true;
+        }
+    catch (e){
+        return false;
+    }
+}
+
+</script>
 </head>
 <body>
 <!-- 下雪代码 过后删除或引用  
@@ -166,11 +293,11 @@ html,body {height: 100%;margin: 0;padding: 0;}body {font-family: 'lucida grande'
 	<div id='content'>
 		<!-- <h1>I Tell You</h1> -->
 		<ol>
-		    <li><font size="2" color="">网页版简历 访问密码：</font><font size="3" color="#FF0000"><b>0</b></font></li>
-			<li><font size="2" color="">此简历可能更偏向Boss或主管类</font></li>
+		    <li><font size="2" color="">网端-访问密码：</font><font size="3" color="#FF0000"><b>0</b></font></li>
 			<li><font size="2" color="">感谢意向选取和录用 诚以致远</font></li>
+			<li><font size="2" color="">此简历或更偏向Boss或主管类</font></li>
+			<li><font size="2" color="">推荐电脑或主流浏览器访问</font></li>
 			<li><font size="2" color="">更新于<b>2021年</b> 垂询微信:<a target="_blank" href="images/wechat_add_code.png"><font size="2" color="#272727">OneBoy-WeChat</a></font>
-			<li><font size="2" color="">望此简历和相关能符合≥60 相关不足之处，还请海涵</font>
 			</ol>
 			<!--倒计时 <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
 <font size="5" color="ff0000">祝</font>	：2021年新年快乐		
@@ -208,7 +335,87 @@ document.getElementById("t_s").innerHTML = s + "秒";
 setInterval(getRTime,1000); 
 </script>  -->
 </body> 
-		<p><font size="2" color="#737300">< 推荐电脑或主流浏览器访问 ></font></p>
+     <!-- 模态框触发按钮 -->
+    <button id="triggerBtn"><font size="2" color="#8B6914">< 致·每一位访者的信 > </a> </font></button>
+    <!-- 模态框 -->
+	
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+            </div>
+			 <span id="closeBtn" class="close">×</span>
+            <div class="modal-body">		 
+			<div style="text-align:left;">
+				<p><font style="line-height:1.5;">
+				该如何说起呢……
+				<p style="text-indent:2em;"><font style="line-height:1.5;">
+                回望，时间就像走马灯一样。
+				<p style="text-indent:2em;"><font style="line-height:1.5;">
+				曾在校一次懵懂的求职经历，萌生了此“网端简历”的想法.稀里糊涂的自学了相关，东拼西凑勉强弄的像个样子。也许没有word或pdf方式的便捷，亦或显得不太正经，但承载和记录了很多。<br/>
+			    <p style="text-indent:2em;"><font style="line-height:1.5;">
+				明白慢工出细活的道理，也深知时间和知识的宝贵。不经意间，反复的尝试、修改、优化就这样开始了新的阶段，挽如一张白纸。
+                恍然间，回头看来时路的时候，岁月就这么过来了。
+                <p style="text-indent:2em;"><font style="line-height:1.5;">
+                但度过多少岁月，若能坚持当下，不忘初衷，定能一无既往的进步。嗯…最后，感谢抽许时间，查看此简短的内容。望此简历和相关能符合≥60 相关不足之处，还请海涵。
+			</div>
+			<p align="center">路漫漫其修远兮,吾将上下而求索—《离骚》</p>
+			<p style="text-align:right;">  <font size="3" color="#A4A4A4">致·每一位访者的信</font></p>
+            </div>
+			<!-- 文本尾部
+            <div class="modal-footer">
+                <h3>尾部</h3>
+            </div>-->
+        </div>
+    </div>  
+	<!-- 模型框js -->
+<script type="text/javascript" src="modalBox.js"></script>、
+<script>
+(function() {
+	/*建立模态框对象*/
+	var modalBox = {};
+	/*获取模态框*/
+	modalBox.modal = document.getElementById("myModal");
+    /*获得trigger按钮*/
+	modalBox.triggerBtn = document.getElementById("triggerBtn");
+    /*获得关闭按钮*/
+	modalBox.closeBtn = document.getElementById("closeBtn");
+	/*模态框显示*/
+	modalBox.show = function() {
+		console.log(this.modal);
+		this.modal.style.display = "block";
+	}
+	/*模态框关闭*/
+	modalBox.close = function() {
+		this.modal.style.display = "none";
+	}
+	/*当用户点击模态框内容之外的区域，模态框也会关闭*/
+	modalBox.outsideClick = function() {
+		var modal = this.modal;
+		window.onclick = function(event) {
+            if(event.target == modal) {
+            	modal.style.display = "none";
+            }
+		}
+	}
+    /*模态框初始化*/
+	modalBox.init = function() {
+		var that = this;
+		this.triggerBtn.onclick = function() {
+            that.show();
+		}
+		this.closeBtn.onclick = function() {
+			that.close();
+		}
+		this.outsideClick();
+	}
+	modalBox.init();
+ 
+})();
+</script>
+		<p>
+		<!-- 点击文本弹出简短内容
+		<a href="#" onclick="alert('&emsp；&emsp；xxxx')" >-->
+		</p>
 		<a target="_blank" href="https://myresume-1252777009.cos-website.ap-beijing.myqcloud.com/verify/verify.html" class="btn btn-default" rel='nofollow'>内线(快)✔</a> <a target="_blank" href="https://myresume-1252777009.cos-website.ap-beijing.myqcloud.com/oldindex.htm" class="btn btn-default" rel='nofollow'><s>外线(备)</s></a>
 	</div>
 </div>
@@ -220,6 +427,6 @@ setInterval(getRTime,1000);
             document.body.className += ' loaded';
         }
     </script>
-	
+
 </body>
 </html>
