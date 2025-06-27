@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404错误页</title>
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+            --primary-color: #3b82f6;
+            --secondary-color: #2563eb;
+            --neutral-100: #f8fafc;
+            --neutral-200: #e2e8f0;
+            --neutral-600: #475569;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            opacity: 0.3;
+        }
+        
+        .bg-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.2;
+            background-image: 
+                linear-gradient(45deg, var(--primary-color) 1px, transparent 1px),
+                linear-gradient(-45deg, var(--primary-color) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .content-container {
+            position: relative;
+            z-index: 1;
+            padding: 60px 40px;
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        .error-code {
+            font-size: clamp(5rem, 20vw, 10rem);
+            font-weight: 900;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            line-height: 1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .error-message {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 15px;
+        }
+        
+        .error-details {
+            font-size: clamp(1rem, 3vw, 1.25rem);
+            color: var(--neutral-600);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .progress-container {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 40px;
+            background-color: var(--neutral-200);
+            border-radius: 100px;
+            height: 8px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            background-color: var(--primary-color);
+            height: 100%;
+            width: 100%;
+            transition: width 1s ease-out;
+        }
+        
+        .home-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.4);
+        }
+        
+        .home-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.4);
+        }
+        
+        .home-button:active {
+            transform: translateY(0);
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 600px) {
+            .content-container {
+                padding: 40px 20px;
+            }
+            
+            .error-code {
+                font-size: clamp(3rem, 15vw, 6rem);
+            }
+            
+            .error-message {
+                font-size: clamp(1.2rem, 4vw, 1.8rem);
+            }
+            
+            .error-details {
+                font-size: clamp(0.9rem, 3vw, 1.1rem);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 背景图片 -->
+    <div class="bg-image">
+        <img src="https://picsum.photos/1600/900/?nature,animal,cat,rain,city,girl,starry" alt="随机风景" loading="lazy">
+    </div>
+    
+    <!-- 动态网格背景 -->
+    <div class="bg-grid" id="animated-bg"></div>
+    
+    <!-- 主容器 -->
+    <div class="content-container">
+        <!-- 404错误代码 -->
+        <div class="error-code">404</div>
+        
+        <!-- 错误消息 -->
+        <div class="error-message" id="error-message"></div>
+        
+        <!-- 错误详情 -->
+        <div class="error-details" id="error-details"></div>
+        
+        <!-- 线性进度条 -->
+        <div class="progress-container" id="progress-container">
+            <div id="progress-bar" class="progress-bar"></div>
+        </div>
+        
+        <!-- 返回主页按钮 -->
+        <a href="#" id="home-button" class="home-button"></a>
+    </div>
+
+    <script>
+        // 配置参数 - 可在此处集中修改
+        const config = {
+            redirectUrl: "", // 自动跳转地址，留空则不跳转
+            redirectTime: 18, // 倒计时秒数
+            homeUrl: "index.html", // 返回主页按钮地址
+            messages: {
+                errorMessage: "哎呀！页面好像去度假了",
+                errorDetails: "您访问的页面不存在或已被移除...",
+                buttonText: "返回主页"
+            }
+        };
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            // 应用自定义文案
+            document.getElementById('error-message').textContent = config.messages.errorMessage;
+            document.getElementById('error-details').textContent = config.messages.errorDetails;
+            document.getElementById('home-button').textContent = config.messages.buttonText;
+            
+            // 设置返回主页按钮链接
+            document.getElementById('home-button').href = config.homeUrl;
+            
+            // 进度条和自动跳转逻辑
+            const progressBar = document.getElementById('progress-bar');
+            const progressContainer = document.getElementById('progress-container');
+            let countdownInterval;
+            
+            // 如果设置了跳转地址，则启动倒计时
+            if (config.redirectUrl && config.redirectUrl.trim() !== '') {
+                // 动态背景动画
+                const animatedBg = document.getElementById('animated-bg');
+                let bgPosition = 0;
+                const bgAnimation = setInterval(() => {
+                    bgPosition += 0.5;
+                    animatedBg.style.backgroundPosition = `${bgPosition}px ${bgPosition}px`;
+                }, 50);
+                
+                // 更新进度条
+                const updateProgress = (percent) => {
+                    progressBar.style.width = `${percent}%`;
+                };
+                
+                // 倒计时逻辑
+                let secondsRemaining = config.redirectTime;
+                updateProgress(100);
+                
+                countdownInterval = setInterval(() => {
+                    secondsRemaining--;
+                    const percent = (secondsRemaining / config.redirectTime) * 100;
+                    updateProgress(percent);
+                    
+                    if (secondsRemaining <= 0) {
+                        clearInterval(countdownInterval);
+                        clearInterval(bgAnimation);
+                        window.location.href = config.redirectUrl;
+                    }
+                }, 1000);
+            } else {
+                // 如果没有设置跳转地址，隐藏进度条
+                progressContainer.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
